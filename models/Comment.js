@@ -59,3 +59,4 @@ const ReplySchema = new Schema(
 const Comment = model('Comment', CommentSchema)
 
 module.exports = Comment
+module.exports = Reply
