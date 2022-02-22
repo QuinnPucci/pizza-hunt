@@ -1,4 +1,4 @@
-// this is the indexDB file
+// this is the indexedDB file to handle offline pizza saving
 
 // create variable to hold db connection
 let db
@@ -21,10 +21,18 @@ request.onsuccess = function(event) {
     db = event.target.result
 
     if (navigator.onLine) {
-        // stuff here 
+        // uploadPizza will go here when created
     }
 }
 
 request.onerror = function(event) {
     console.log(event.target.errorCode)
+}
+
+function saveRecord(record) {
+    const transaction = db.transaction(['new_pizza'], 'readwrite')
+
+    const pizzaObjectStore = transaction.objectStore('new_pizza')
+
+    pizzaObjectStore.add(record)
 }
