@@ -67,7 +67,7 @@ const handlePizzaSubmit = event => {
   })
   .catch(err => {
     console.log(err)
-    saveRecord(formData)
+    saveRecord(formData) // if a pizza is submitted without internet, it will be saved indexedDB locally
   })
 };
 
